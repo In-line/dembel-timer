@@ -19,7 +19,7 @@ export default class WordLineDateRange extends Vue {
   @Prop() readonly end!: Date;
 
   get text() {
-    return `${dateFormat(this.start, "mmmm, yyyy")} - ${dateFormat(this.end, "yyyy")}`;
+    return `${dateFormat(this.start, "dd.mm.yyyy")} - ${dateFormat(this.end, "yyyy")}`;
   }
 }
 </script>

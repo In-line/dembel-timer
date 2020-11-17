@@ -17,7 +17,7 @@ export default class WordLineProgress extends Vue {
 
   @Prop() readonly end!: Date;
 
-  @Prop({ default: 19 }) readonly fractionDigits!: number;
+  @Prop({ default: 10 }) readonly fractionDigits!: number;
 
   currentDate: Date = new Date();
 

@@ -1,8 +1,8 @@
 <template>
   <div id="layout">
     <WordLineDateRange :start="start" :end="end" />
-    <WordLineProgress :start="start" :end="end" />
     <WordLineWeeksBetween :start="start" :end="end" />
+    <WordLineProgress :start="start" :end="end" />
   </div>
 </template>
 
@@ -33,6 +33,6 @@ export default class WordLineDembel extends Vue {
   flex-wrap: nowrap;
   height: 100%;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 </style>

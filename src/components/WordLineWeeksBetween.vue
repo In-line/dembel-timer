@@ -1,7 +1,11 @@
 <template>
   <span id="root">
     <WordLineText :text="text" />
-    <WordLineText :text="' ' + $tc('week', this.weeksBetween)" />
+    <WordLineText
+      :disable-tube="disableWeekDecorations()"
+      :disable-frame="disableWeekDecorations()"
+      :text="$tc('week', this.weeksBetween)"
+    />
   </span>
 </template>
 
@@ -9,6 +13,7 @@
 import { Prop, Vue } from "vue-property-decorator";
 import Component from "vue-class-component";
 import WordLineText from "@/components/WordLineText.vue";
+import i18n from "@/i18n";
 
 @Component({
   components: {
@@ -31,6 +36,10 @@ export default class WordLineWeeksBetween extends Vue {
     return (+this.end - Math.min(+Date.now(), +this.end)) / (7 * 24 * 60 * 60 * 1000);
   }
 
+  disableWeekDecorations() {
+    return i18n.locale !== "en";
+  }
+
   created() {
     this.timerId = setInterval(() => {
       this.$forceUpdate();
@@ -47,6 +56,8 @@ export default class WordLineWeeksBetween extends Vue {
 #root {
   display: flex;
   align-items: flex-end;
+  justify-content: center;
+  gap: 4em;
 }
 </style>
 
